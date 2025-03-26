@@ -21,7 +21,7 @@ export default class Currency {
 
   set name(newName) {
     if (typeof newName !== 'string') {
-      throw new TypeError('Code must be a string');
+      throw new TypeError('Name must be a string');
     }
     this._name = newName;
   }
