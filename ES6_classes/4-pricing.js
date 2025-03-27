@@ -1,4 +1,4 @@
-import Currency from './3-currency.js';
+import Currency from './3-currency';
 
 export default class Pricing {
   constructor(amount, currency) {
@@ -35,7 +35,7 @@ export default class Pricing {
     return `${this.amount} ${this.currency.displayFullCurrency()}`;
   }
 
-  convertPrice(amount, conversionRate) {
+  convertPrice(conversionRate) {
     if (typeof amount !== 'number') {
       throw new TypeError('Amount must be a number');
     }
