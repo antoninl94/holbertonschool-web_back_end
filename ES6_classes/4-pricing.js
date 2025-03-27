@@ -8,8 +8,8 @@ export default class Pricing {
     if (!(currency instanceof Currency)) {
       throw new TypeError('currency must be an instance of Currency');
     }
-    this._amount = amount;
-    this._currency = currency;
+    this.amount = amount;
+    this.currency = currency;
   }
 
   get amount() {
@@ -38,13 +38,14 @@ export default class Pricing {
     return `${this._amount} ${this._currency.displayFullCurrency()}`;
   }
 
-  static convertPrice(conversionRate) {
+  static convertPrice(amount, conversionRate) {
+    console.log(amount, conversionRate);
     if (typeof amount !== 'number') {
       throw new TypeError('Amount must be a number');
     }
     if (typeof conversionRate !== 'number') {
       throw new TypeError('conversionRate must be a number');
     }
-    return this.amount * conversionRate;
+    return amount * conversionRate;
   }
 }
