@@ -6,7 +6,7 @@ export default class Car {
   }
 
   cloneCar() {
-    const clonedCar = Object.getPrototypeOf(this).constructor;
-    return new clonedCar();
+    const ClonedCar = Object.getPrototypeOf(this).constructor;
+    return new ClonedCar();
   }
 }
