@@ -1,5 +1,5 @@
 export default function handleResponseFromAPI(promise) {
-  const promise = new Promise((resolve, reject) => {
+  const newPromise = new Promise((resolve, reject) => {
     try {
       resolve({ status: 200, body: 'Success' });
     } catch (e) {
@@ -8,5 +8,5 @@ export default function handleResponseFromAPI(promise) {
       console.log('Got a response from the API');
     }
   });
-  return promise;
+  return newPromise;
 }
