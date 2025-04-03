@@ -1,1 +1,6 @@
-export default function guardrail(mathFunction)
+export default function guardrail(mathFunction) {
+  let queue = [];
+  try {
+    
+  }
+}
