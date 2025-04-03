@@ -1,6 +1,14 @@
 export default function guardrail(mathFunction) {
-  let queue = [];
+  const queue = [];
   try {
-    
+    if (!(mathFunction instanceof Function)) {
+      throw new TypeError('mathFunction must be a function');
+    }
+    queue.push(mathFunction);
+  } catch (e) {
+    queue.push(e);
+  } finally {
+    queue.push('Guardrail was processed');
   }
+  return queue;
 }
