@@ -4,7 +4,8 @@ export default function guardrail(mathFunction) {
     if (!(mathFunction instanceof Function)) {
       throw new TypeError('mathFunction must be a function');
     }
-    queue.push(mathFunction);
+    const result = mathFunction();
+    queue.push(result);
   } catch (e) {
     queue.push(e);
   } finally {
