@@ -6,9 +6,9 @@ of integers and floats and returns their sum as a float.
 from typing import List, Union
 
 
-def sum_mixed_list(input_list: List[Union[float, int]]) -> float:
+def sum_mixed_list(mxd_lst: List[Union[float, int]]) -> float:
     """Add all float and integers of a list and return the result"""
     sum = 0.0
-    for x in input_list:
+    for x in mxd_lst:
         sum += x
     return sum
