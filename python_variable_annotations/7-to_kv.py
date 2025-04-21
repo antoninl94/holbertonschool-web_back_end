@@ -11,5 +11,5 @@ from typing import Tuple, Union
 
 def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
     """return a tuple with str first then int OR float"""
-    kv = (k, v * v)
+    kv = (k, float(v ** 2))
     return kv
