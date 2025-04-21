@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Define and annotate the following variables with specified values
+"""
 
 a:int = 1
 pi:float = 3.14
