@@ -10,14 +10,13 @@ wait_n should return the list of all the delays (float values).
 The list of the delays should be in ascending order
 without using sort() because of concurrency.
 """
-from typing import List
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
-async def wait_n(n: int, max_delay: int) -> List[float]:
+async def wait_n(n: int, max_delay: int) -> list[float]:
     """Return the list of all the delays"""
     delay_list = []
     for _ in range(n):
         delay = await wait_random(max_delay)
         delay_list.append(delay)
-    return delay_list
+    return list(delay_list)
