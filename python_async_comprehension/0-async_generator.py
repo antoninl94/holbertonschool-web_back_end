@@ -13,5 +13,5 @@ from asyncio import sleep
 async def async_generator() -> AsyncGenerator[float, None]:
     """return a random number"""
     for _ in range(10):
-        yield random.uniform(0, 10)
+        yield float(random.uniform(0, 10))
         await sleep(1)
