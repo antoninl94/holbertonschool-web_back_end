@@ -55,7 +55,7 @@ class Server:
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
         data: List = self.dataset()
-        total_pages: int = len(data) / page_size
+        total_pages: int = math.ceil(len(data) / page_size)
         return {
             'page_size': page_size,
             'page': page,
