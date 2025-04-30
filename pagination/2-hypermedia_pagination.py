@@ -16,7 +16,6 @@ import csv
 import math
 from typing import List
 from typing import Tuple
-from typing import Dict
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
@@ -51,7 +50,7 @@ class Server:
         start, end = index_range(page, page_size)
         return self.dataset()[start:end]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """This is a function that returns a dictionary"""
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
