@@ -19,4 +19,5 @@ def update_topics(mongo_collection, name, topics):
     """
     school_name = {"name": name}
     update_data = {"$set": {"topics": topics}}
-    mongo_collection.update_one(school_name, update_data)
+    result = mongo_collection.update_one(school_name, update_data)
+    return result.modified_count
