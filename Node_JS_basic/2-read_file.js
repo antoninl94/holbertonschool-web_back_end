@@ -6,9 +6,11 @@ function countStudents(path) {
     const lines = data.trim().split('\n');
     const headers = lines[0].split(',');
 
-    const totalStudents = lines.length - 1;
     const firstnameIndex = headers.indexOf('firstname');
     const fieldIndex = headers.indexOf('field');
+
+    const validLines = lines.slice(1).filter((line) => line.trim() !== '');
+    const totalStudents = validLines.length;
 
     const resultCS = lines.slice(1)
       .map((line) => line.split(','))
