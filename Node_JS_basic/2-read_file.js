@@ -11,14 +11,14 @@ function countStudents(path) {
     const fieldIndex = headers.indexOf('field');
 
     const resultCS = lines.slice(1)
-    .map(line => line.split(','))
-    .filter(fields => fields[fieldIndex] === 'CS')
-    .map(fields => fields[firstnameIndex]);
+      .map((line) => line.split(','))
+      .filter((fields) => fields[fieldIndex] === 'CS')
+      .map((fields) => fields[firstnameIndex]);
 
     const resultSWE = lines.slice(1)
-    .map(line => line.split(','))
-    .filter(fields => fields[fieldIndex] === 'SWE')
-    .map(fields => fields[firstnameIndex]);
+      .map((line) => line.split(','))
+      .filter((fields) => fields[fieldIndex] === 'SWE')
+      .map((fields) => fields[firstnameIndex]);
 
     process.stdout.write(`Number of students: ${totalStudents}\n`);
     process.stdout.write(`Number of students in CS: ${resultCS}\n`);
