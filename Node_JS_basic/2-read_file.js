@@ -24,7 +24,7 @@ function countStudents(path) {
 
     process.stdout.write(`Number of students: ${totalStudents}\n`);
     process.stdout.write(`Number of students in CS: ${resultCS}\n`);
-    process.stdout.write(`Number of students in CS: ${resultSWE}\n`);
+    process.stdout.write(`Number of students in SWE: ${resultSWE}\n`);
   } catch (err) {
     throw new Error('Cannot load the database');
   }
