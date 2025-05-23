@@ -4,16 +4,8 @@ const fs = require('fs');
 const app = express();
 const port = 1245;
 
-const csvPath = process.argv[2];
-
-if (!csvPath) {
-  console.error('Veuillez fournir un nom de fichier CSV en argument.');
-  process.exit(1);
-}
-
-if (!fs.existsSync(csvPath)) {
-  console.error(`Le fichier ${csvPath} n'existe pas.`);
-  process.exit(1);
+function readDatabase(csvPath) {
+  return fs.promises.readFile(csvPath, 'utf8');
 }
 
 app.get('/', (req, res) => {
@@ -21,12 +13,10 @@ app.get('/', (req, res) => {
   res.send('Hello Holberton School!');
 });
 
-function readDatabase(csvPath) {
-  return fs.promises.readFile(csvPath, 'utf8');
-}
-
 app.get('/students', async (req, res) => {
   res.type('text/plain');
+
+  const csvPath = process.argv[2];
 
   try {
     const data = await readDatabase(csvPath);
@@ -61,10 +51,9 @@ app.get('/students', async (req, res) => {
 
     res.send(response.trim());
   } catch (err) {
-    res.status(500).send('Cannot load the database');
+    res.send('Cannot load the database');
   }
 });
 
 app.listen(port);
-
 module.exports = app;
