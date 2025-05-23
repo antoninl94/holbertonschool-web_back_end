@@ -27,7 +27,6 @@ function readDatabase(csvPath) {
 
 app.get('/students', async (req, res) => {
   res.type('text/plain');
-  res.send('This is the list of our students');
 
   try {
     const data = await readDatabase(csvPath);
@@ -53,12 +52,16 @@ app.get('/students', async (req, res) => {
         return acc;
       }, {});
 
-    process.stdout.write(`Number of students: ${totalStudents}\n`);
+    let response = `This is the list of our students\n`;
+    response += `Number of students: ${totalStudents}\n`;
+
     for (const [field, names] of Object.entries(studentsByField)) {
-      process.stdout.write(`Number of students in ${field}: ${names.length}. List: ${names.join(', ')}\n`);
+      response += `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}\n`;
     }
+
+    res.send(response.trim()); // ✅ envoie la réponse complète
   } catch (err) {
-    throw new Error('Cannot load the database');
+    res.status(500).send('Cannot load the database');
   }
 });
 
