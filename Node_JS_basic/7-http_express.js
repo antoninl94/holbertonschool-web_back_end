@@ -52,14 +52,14 @@ app.get('/students', async (req, res) => {
         return acc;
       }, {});
 
-    let response = 'This is the list of our students\n';
+    let response = "This is the list of our students\n";
     response += `Number of students: ${totalStudents}\n`;
 
     for (const [field, names] of Object.entries(studentsByField)) {
       response += `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}\n`;
     }
 
-    res.send(response.trim()); // ✅ envoie la réponse complète
+    res.send(response.trim());
   } catch (err) {
     res.status(500).send('Cannot load the database');
   }
